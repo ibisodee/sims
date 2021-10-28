@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-SSL} !on
+RewriteCond %{HTTP_HOST} ^goldbridgeinternationalschool\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.goldbridgeinternationalschool\.com$
+RewriteRule ^(.*)$ "https\:\/\/www\.goldbridgeinternationalschool\.com\/$1" [R=301,L]
+
